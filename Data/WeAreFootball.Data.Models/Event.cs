@@ -21,7 +21,7 @@
 
         public DateTime Date { get; set; }
 
-        public int? LeagueId { get; set; }
+        public int LeagueId { get; set; }
 
         public virtual League League { get; set; }
 

@@ -6,11 +6,10 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    using WeAreFootball.Data.Common.Models;
-    using WeAreFootball.Data.Models;
-
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using WeAreFootball.Data.Common.Models;
+    using WeAreFootball.Data.Models;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
@@ -25,6 +24,34 @@
         }
 
         public DbSet<Setting> Settings { get; set; }
+
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
+        public DbSet<News> News { get; set; }
+
+        public DbSet<Comment> Comments { get; set; }
+
+        public DbSet<Event> Events { get; set; }
+
+        public DbSet<EventTeams> EventTeams { get; set; }
+
+        public DbSet<Image> Images { get; set; }
+
+        public DbSet<Logo> Logos { get; set; }
+
+        public DbSet<League> Leagues { get; set; }
+
+        public DbSet<Team> Teams { get; set; }
+
+        public DbSet<Vote> Votes { get; set; }
+
+        public DbSet<Tag> Tags { get; set; }
+
+        public DbSet<NewsTag> NewsTags { get; set; }
+
+        public DbSet<NewsLeague> NewsLeagues { get; set; }
+
+        public DbSet<ContactForm> ContactFrom { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -49,6 +76,8 @@
         {
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
+
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             this.ConfigureUserIdentityRelations(builder);
 

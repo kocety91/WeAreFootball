@@ -18,6 +18,7 @@ namespace WeAreFootball.Data.Models
             this.Events = new HashSet<Event>();
             this.Votes = new HashSet<Vote>();
             this.Comments = new HashSet<Comment>();
+            this.CreatedNews = new HashSet<News>();
         }
 
         // Audit info
@@ -45,5 +46,7 @@ namespace WeAreFootball.Data.Models
         public virtual ICollection<Vote> Votes { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
+
+        public virtual ICollection<News> CreatedNews { get; set; }
     }
 }
