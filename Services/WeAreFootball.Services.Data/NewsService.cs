@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WeAreFootball.Data.Common.Repositories;
-using WeAreFootball.Data.Models;
-using WeAreFootball.Services.Data.Contracts;
-using WeAreFootball.Services.Mapping;
-
-namespace WeAreFootball.Services.Data
+﻿namespace WeAreFootball.Services.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using WeAreFootball.Data.Common.Repositories;
+    using WeAreFootball.Data.Models;
+    using WeAreFootball.Services.Data.Contracts;
+    using WeAreFootball.Services.Mapping;
+
     public class NewsService : INewsService
     {
         private readonly IDeletableEntityRepository<News> newsRepository;
