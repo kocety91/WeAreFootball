@@ -3,6 +3,8 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
+    using WeAreFootball.Web.ViewModels.Events;
+
     public interface IEventsService
     {
         int GetCount();

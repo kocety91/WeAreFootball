@@ -4,6 +4,8 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
+    using WeAreFootball.Web.ViewModels.Newses;
+
     public interface INewsService
     {
         int GetCount();

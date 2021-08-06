@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using WeAreFootball.Web.ViewModels.Administration;
 
     public interface IUsersService
     {

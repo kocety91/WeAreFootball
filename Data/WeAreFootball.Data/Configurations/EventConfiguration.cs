@@ -37,6 +37,9 @@
 
             @event.Property(x => x.Sign)
                 .IsRequired();
+
+            @event.Property(x => x.Date)
+                .IsRequired();
         }
     }
 }

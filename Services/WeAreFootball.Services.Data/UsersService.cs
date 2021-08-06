@@ -10,6 +10,7 @@
     using WeAreFootball.Data.Models;
     using WeAreFootball.Services.Data.Contracts;
     using WeAreFootball.Services.Mapping;
+    using WeAreFootball.Web.ViewModels.Administration;
 
     public class UsersService : IUsersService
     {

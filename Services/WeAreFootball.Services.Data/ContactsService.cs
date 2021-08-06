@@ -5,6 +5,7 @@
     using WeAreFootball.Data.Common.Repositories;
     using WeAreFootball.Data.Models;
     using WeAreFootball.Services.Data.Contracts;
+    using WeAreFootball.Web.ViewModels.ContacktForm;
 
     public class ContactsService : IContactsService
     {
@@ -17,7 +18,7 @@
 
         public async Task Send(ContactFormInputViewModel contactFormEntryViewModel)
         {
-            var form = new ContactFrom()
+            var form = new ContactForm()
             {
                 FullName = contactFormEntryViewModel.FullName,
                 Email = contactFormEntryViewModel.Email,
