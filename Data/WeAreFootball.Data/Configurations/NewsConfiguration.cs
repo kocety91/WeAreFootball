@@ -12,8 +12,14 @@
             news
                 .HasOne(n => n.Image)
                 .WithOne(i => i.News)
-                .HasForeignKey<Image>(i => i.NewsId)
+                .HasForeignKey<News>(n => n.ImageId)
                 .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            news
+                .HasOne(n => n.AddedByUser)
+                .WithMany(i => i.CreatedNews)
+                .HasForeignKey(n => n.AddedByUserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             news.Property(x => x.Title)

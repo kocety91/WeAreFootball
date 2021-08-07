@@ -76,7 +76,7 @@
 
             this.Input = new InputModel
             {
-                Username = userName,
+                UserName = userName,
             };
         }
     }

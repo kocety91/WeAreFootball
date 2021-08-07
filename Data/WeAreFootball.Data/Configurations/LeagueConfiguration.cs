@@ -11,14 +11,12 @@
         {
             league.HasOne(l => l.Image)
                 .WithOne(i => i.League)
-                .HasForeignKey<Image>(i => i.LeagueId)
-                .IsRequired()
+                .HasForeignKey<League>(l => l.ImageId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            league.HasOne(l => l.Logo)
+            league.HasOne(x => x.Logo)
                 .WithOne(l => l.League)
-                .HasForeignKey<Logo>(l => l.LeagueId)
-                .IsRequired()
+                .HasForeignKey<League>(l => l.LogoId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             league.Property(x => x.Name)

@@ -8,11 +8,18 @@
     {
         public void Configure(EntityTypeBuilder<Logo> logo)
         {
-            logo.Property(x => x.Extension)
-                .IsRequired();
+            logo
+              .HasOne(l => l.Team)
+              .WithOne(t => t.Logo)
+              .HasForeignKey<Logo>(l => l.TeamId)
+              .OnDelete(DeleteBehavior.Restrict);
 
-            logo.Property(x => x.RemoteImageUrl)
-                .IsRequired();
+            logo
+                .HasOne(l => l.League)
+                .WithOne(x => x.Logo)
+                .HasForeignKey<Logo>(x => x.LeagueId)
+                .OnDelete(DeleteBehavior.Restrict);
+
         }
     }
 }

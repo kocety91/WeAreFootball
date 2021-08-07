@@ -28,7 +28,7 @@
 
         public static class League
         {
-            public const int NameMaxLenght = 20;
+            public const int NameMaxLenght = 30;
             public const int NameMinLenght = 3;
             public const int CountryNameLenght = 15;
             public const int CountryMinNameLenght = 3;
@@ -39,7 +39,7 @@
 
         public static class News
         {
-            public const int TitleMaxLenght = 40;
+            public const int TitleMaxLenght = 225;
             public const int TitleMinLenght = 5;
 
             public const string TitleDisplay = "Title";
@@ -50,7 +50,7 @@
 
         public static class Tag
         {
-            public const int NameMaxLenght = 20;
+            public const int NameMaxLenght = 25;
             public const int NameMinLenght = 3;
         }
 

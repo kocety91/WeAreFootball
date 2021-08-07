@@ -16,17 +16,16 @@
               .OnDelete(DeleteBehavior.Restrict);
 
             @event
-                .HasOne(e => e.Image)
-                .WithOne(i => i.Event)
-                .HasForeignKey<Image>(i => i.EventId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
-
-            @event
                 .HasOne(e => e.League)
                 .WithMany(l => l.Events)
                 .HasForeignKey(e => e.LeagueId)
                 .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            @event
+                .HasOne(e => e.Image)
+                .WithOne(i => i.Event)
+                .HasForeignKey<Event>(e => e.ImageId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             @event.Property(x => x.Content)

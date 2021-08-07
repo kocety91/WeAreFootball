@@ -9,6 +9,6 @@
         [Display(Name = "Upload image")]
         public IFormFile Image { get; set; }
 
-        public string Username { get; set; }
+        public string UserName { get; set; }
     }
 }
