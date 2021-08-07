@@ -27,7 +27,7 @@
         {
             configuration.CreateMap<Comment, NewsCommentViewModel>()
                 .ForMember(x => x.ApplicationUserImage, y => y.MapFrom(x => x.ApplicationUser.Image.RemoteImageUrl != null ?
-                x.ApplicationUser.Image.RemoteImageUrl : "/images/users/" + x.ApplicationUser.ImageId + "." + x.ApplicationUser.Image.Extension));
+                x.ApplicationUser.Image.RemoteImageUrl : "/images/users/" + x.ApplicationUser.Image.Id + "." + x.ApplicationUser.Image.Extension));
         }
     }
 }
