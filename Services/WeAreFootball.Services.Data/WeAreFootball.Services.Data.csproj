@@ -21,7 +21,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\WeAreFootball.Data.Common\WeAreFootball.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\WeAreFootball.Data.Models\WeAreFootball.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\WeAreFootball.Web.ViewModels\WeAreFootball.Web.ViewModels.csproj" />
     <ProjectReference Include="..\WeAreFootball.Services.Mapping\WeAreFootball.Services.Mapping.csproj" />
+    <ProjectReference Include="..\WeAreFootball.Services\WeAreFootball.Services.csproj" />
   </ItemGroup>
 
 </Project>
