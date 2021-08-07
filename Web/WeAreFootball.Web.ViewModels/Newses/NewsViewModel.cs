@@ -70,7 +70,7 @@
                 .ForMember(x => x.ImgUrl, y => y.MapFrom(x => x.Image.RemoteImageUrl != null ?
                 x.Image.RemoteImageUrl : "/images/news/" + x.Image.Id + "." + x.Image.Extension))
                 .ForMember(x => x.UserImage, y => y.MapFrom(u => u.AddedByUser.Image.RemoteImageUrl != null ?
-                   u.AddedByUser.Image.RemoteImageUrl : "/images/users/" + u.AddedByUser.ImageId + "." +
+                   u.AddedByUser.Image.RemoteImageUrl : "/images/users/" + u.AddedByUser.Image.Id + "." +
                    u.AddedByUser.Image.Extension));
         }
     }

@@ -13,7 +13,6 @@
                 .HasOne(n => n.Image)
                 .WithOne(i => i.News)
                 .HasForeignKey<News>(n => n.ImageId)
-                .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 
             news
