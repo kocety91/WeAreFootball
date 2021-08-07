@@ -1,0 +1,28 @@
+﻿@model HttpErrorViewModel
+@{
+    this.ViewData["Title"] = "Page not found";
+}
+
+<div class="container">
+    <br />
+    <h1>Page not found: @Model.StatusCode</h1>
+    <div class="container">
+        <img src="~/images/deam.jpg" alt="Not found page">
+        <br />
+        <div class="container">
+            <br />
+            <span>
+                We are sorry, the page you requested could not be found. Please go back to the homepage.
+                <br />
+                Thank your for your understanding!
+            </span>
+            <div class="grid_3 grid_3 w3">
+                <h3>
+                    <a asp-controller="Home" asp-action="Index">
+                        <span class="label label-primary">Home</span>
+                    </a>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>

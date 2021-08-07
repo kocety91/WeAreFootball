@@ -1,58 +1,289 @@
 ﻿@using WeAreFootball.Common
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Site Metas -->
+    <title>WeAreFootball</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="">
+
+
+    <!-- Site CSS -->
+    <link href="~/css/animate.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/style.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/lib/fontawesome/css/all.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
+
+
+    <link href="~/css/bootstrap.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/custom.css" rel="stylesheet" asp-append-version="true" />
+
+    <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/3dslider.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/owl.carousel.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/flaticon.css" rel="stylesheet" asp-append-version="true" />
+
+    <!-- Colors CSS -->
+    <link href="~/css/colors.css" rel="stylesheet" asp-append-version="true" />
+    <!-- ALL VERSION CSS -->
+    <link href="~/css/versions.css" rel="stylesheet" asp-append-version="true" />
+    <!-- Responsive CSS -->
+    <link href="~/css/responsive.css" rel="stylesheet" asp-append-version="true" />
+    <!-- Custom CSS -->
+    <link href="~/css/custom.css" rel="stylesheet" asp-append-version="true" />
+    <!-- font family -->
+    <link href="~/css/font-awesome.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/lib/fontawesome/css/all.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- end font family -->
+
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+
+<body class="game_info" data-spy="scroll" data-target=".header">
+    <section id="top">
+        <header>
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@GlobalConstants.SystemName</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                <div class="header-top">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="full">
+                                <div class="logo">
+                                    <a href="index.html"><img src="/images/logo.png" alt="#" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="right_top_section">
+                                <!-- button section -->
+                                <ul class="login">
+                                    <li class="col">
+                                        <partial name="_LoginPartial" />
+                                    </li>
+                                </ul>
+                                <!-- end button section -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full">
+                                <div class="main-menu-section">
+                                    <div class="menu">
+                                        <vc:nav-bar-component></vc:nav-bar-component>
+                                        <div class="search-bar">
+                                            <div id="imaginary_container">
+                                                <form asp-controller="News" asp-action="Search" method="get">
+                                                    <div class="input-group stylish-input-group">
+                                                        <input type="text" class="form-control" placeholder="Search" name="SearchString">
+                                                        <span class="input-group-addon">
+                                                            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                                        </span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @this.RenderBody()
-        </main>
-    </div>
-    
-    <footer class="border-top footer text-muted">
+        </header>
+
+        <div class="full-slider">
+            <div id="carousel-example-generic" class="carousel slide">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2" class="active"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <!-- First slide -->
+                    <div class="item active deepskyblue" data-ride="carousel" data-interval="100">
+                        <div class="carousel-caption">
+                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"></div>
+                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                <div class="slider-contant" data-animation="animated fadeInRight">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.item -->
+                    <!-- Second slide -->
+                    <div class="item skyblue" data-ride="carousel" data-interval="100">
+                        <div class="carousel-caption">
+                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"></div>
+                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                <div class="slider-contant" data-animation="animated fadeInRight">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.item -->
+                    <!-- Third slide -->
+                    <div class="item darkerskyblue" data-ride="carousel" data-interval="100">
+                        <div class="carousel-caption">
+                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"></div>
+                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                <div class="slider-contant" data-animation="animated fadeInRight">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.item -->
+                </div>
+                <!-- /.carousel-inner -->
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <!-- /.carousel -->
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- /.carousel -->
+        <div class="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="heading-slider">
+                            <p class="headline"><i class="fa fa-star" aria-hidden="true"></i></p>
+                            <!--made by vipul mirajkar thevipulm.appspot.com-->
+                            <h1>
+                                <a href="" class="typewrite" data-period="2000" data-type='[ "Latest news from sports.", "Top predictions evry day! "]'>
+                                    <span class="wrap"></span>
+                                </a>
+                            </h1>
+                            <span class="wrap"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <vc:derby-of-the-week></vc:derby-of-the-week>
+
+    <section id="contant" class="contant">
         <div class="container">
-            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                @RenderBody()
+            </div>
+        </div>
+    </section>
+
+
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="full">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="#"><img src="~/images/footer-logo.png" alt="#" /></a>
+                            </div>
+                            <p>Write something.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="full">
+                        <div class="footer-widget">
+                            <h3>Menu</h3>
+                            <ul class="footer-menu">
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="full">
+                        <div class="footer-widget">
+                            <h3>Contact us</h3>
+                            <ul class="address-list">
+                                <li><i class="fa fa-phone"></i> 123 456 7890</li>
+                                <li><i style="font-size:20px;top:5px;" class="fa fa-envelope"></i> demo@gmail.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
+    <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
+    <!-- ALL JS FILES -->
+    <script src="js/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/custom.js"></script>
+
+
+    <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/datatables/media/js/jquery.dataTables.min.js" asp-append-version="true"></script>
+    <script src="~/js/3dslider.js" asp-append-version="true"></script>
+    <script src="~/js/all.js" asp-append-version="true"></script>
+    <script src="~/js/animate.js" asp-append-version="true"></script>
+    <script src="~/js/custom.js" asp-append-version="true"></script>
+    <script src="~/js/hoverdir.js" asp-append-version="true"></script>
+    <script src="~/js/jquery.prettyPhoto.js" asp-append-version="true"></script>
+    <script src="~/js/jquery.vide.js" asp-append-version="true"></script>
+    <script src="~/js/map.js" asp-append-version="true"></script>
+    <script src="~/js/modernizer.js" asp-append-version="true"></script>
+    <script src="~/js/owl.carousel.js" asp-append-version="true"></script>
+    <script src="~/js/portfolio.js" asp-append-version="true"></script>
+    <script src="~/js/retina.js" asp-append-version="true"></script>
+    <script src="~/js/scroll.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/site.min.js" asp-append-version="true"></script>
+
+
     @await this.RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
+
+
+
+
