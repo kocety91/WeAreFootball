@@ -1,0 +1,63 @@
+﻿@model WeAreFootball.Web.ViewModels.Events.AllEventsViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 column">
+            <div class="centerflipcards">
+                @foreach (var currentEvent in Model.Events)
+                {
+
+                    <div class="square-flip">
+                        <div class='square' data-image="@currentEvent.ImgUrl">
+                            <div class="square-container">
+                                @foreach (var team in currentEvent.EventTeams)
+                                {
+                                    <div class="row col">
+                                        <h2 class="textshadow">@team.TeamName</h2>
+                                    </div>
+                                }
+                            </div>
+                            <div class="flip-overlay"></div>
+                        </div>
+                        <div class='square2' data-image="@currentEvent.ImgUrl">
+                            <div class="square-container2">
+                                <div class="align-center"></div>
+                                <a asp-area="" asp-controller="Events" asp-action="ById" asp-route-id="@currentEvent.Id" class="boxshadow kallyas-button">View</a>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script>
+        jQuery(document).ready(function ($) {
+
+            //Count nr. of square classes
+            var countSquare = $('.square').length;
+
+            //For each Square found add BG image
+            for (i = 0; i < countSquare; i++) {
+                var firstImage = $('.square').eq([i]);
+                var secondImage = $('.square2').eq([i]);
+
+                var getImage = firstImage.attr('data-image');
+                var getImage2 = secondImage.attr('data-image');
+
+                firstImage.css('background-image', 'url(' + getImage + ')');
+                secondImage.css('background-image', 'url(' + getImage2 + ')');
+            }
+
+        });
+    </script>
+
+}
+
+<hr />
+<partial name="_PagingPartial" model="@Model" />
