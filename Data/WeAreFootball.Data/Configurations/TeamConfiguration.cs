@@ -32,7 +32,7 @@
                 .IsRequired();
 
             team.Property(x => x.StadiumName)
-                .HasMaxLength(ModelValidation.Team.StadiumName)
+                .HasMaxLength(ModelValidation.Team.StadiumMaxName)
                 .IsRequired();
 
             team.Property(x => x.City)

@@ -2,6 +2,9 @@
 {
     using System.Collections.Generic;
 
+    using WeAreFootball.Web.ViewModels.Newses;
+    using WeAreFootball.Web.ViewModels.Users;
+
     public class InputModel
     {
         public int UsersToday { get; set; }
