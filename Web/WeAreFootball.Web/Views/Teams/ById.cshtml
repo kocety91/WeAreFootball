@@ -1,0 +1,88 @@
+﻿@model WeAreFootball.Web.ViewModels.Teams.TeamViewModel
+
+@{
+    var counter = 0;
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <section class="dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 column">
+                        <h1 class="h1 text-center" id="pageHeaderTitle"></h1>
+                        <article class="postcard dark blue">
+                            <a class="postcard__img_link" href="#">
+                                <img class="postcard__img" src="@Model.ImgUrl" alt="Image Title" />
+                            </a>
+                            <div class="postcard__text">
+                                <h1 class="postcard__title blue"><a href="#">@Model.Name</a></h1>
+                                <div class="postcard__subtitle small">
+                                </div>
+                                <div class="postcard__bar"></div>
+                                <div class="postcard__preview-txt">Country : @Model.Country</div>
+                                <div class="postcard__preview-txt">City : @Model.City</div>
+                                <div class="postcard__preview-txt">Stadium : @Model.StadiumName</div>
+                                <div class="postcard__preview-txt">League : @Model.LeagueName</div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <div class="container">
+            <div class="col-md-4 column">
+                <h3>Latest derby for @Model.Name</h3>
+                <aside id="sidebar" class="left-bar">
+                    <div class="feature-matchs">
+                        <div class="team-btw-match">
+                            @foreach (var item in Model.Events)
+                            {
+                                <a asp-area="" asp-controller="Events" asp-action="ById" asp-route-id="@item.Id">
+                                    <ul>
+                                        @foreach (var team in item.EventTeams)
+                                        {
+                                            <li><img src="@team.LogoUrl" alt=""><span>@team.TeamName</span></li>
+                                            @if (counter == 0)
+                                            {
+                                                counter++;
+                                                <h4>VS</h4>
+                                            }
+                                            else
+                                            {
+                                                counter = 0;
+                                            }
+                                        }
+                                    </ul>
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row-col-md-6">
+    <br />
+    <h3>Latest news</h3>
+    <br />
+    @foreach (var news in Model.News)
+    {
+        <div class="col-md-4 column">
+            <div class="news-post-holder">
+                <div class="news-post-widget">
+                    <a asp-controller="News" asp-action="ById" asp-route-id="@news.Id"><img class="img-responsive" src="@news.ImgUrl" alt=""></a>
+                    <div class="news-post-detail">
+                        <h2><a asp-controller="News" asp-action="ById" asp-route-id="@news.Id">@news.ShortTitle</a></h2>
+                        <p>@news.ShortContent</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

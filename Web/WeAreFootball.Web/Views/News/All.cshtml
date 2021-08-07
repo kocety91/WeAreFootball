@@ -1,0 +1,50 @@
+﻿@model WeAreFootball.Web.ViewModels.Newses.AllNewsViewModel
+
+<section id="contant" class="contant">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-lg-4 col-xs-12">
+                <h4>Teams Table</h4>
+                <aside id="sidebar" class="left-bar">
+                    <div class="feature-matchs">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Team</th>
+                                </tr>
+                            </thead>
+                            @foreach (var team in Model.Teams)
+                            {
+                                <tbody>
+                                    <tr>
+                                        <td><a asp-area="" asp-controller="Teams" asp-action="ById" asp-route-id="@team.Id"><img src="@team.LogoUrl" alt="">@team.Name</a></td>
+                                    </tr>
+                                </tbody>
+                            }
+                        </table>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-lg-8 col-sm-8 col-xs-12">
+                @foreach (var item in Model.News)
+                {
+                    <div class="news-post-holder">
+                        <div class="news-post-widget">
+                            <a asp-controller="News" asp-action="ById" asp-route-id="@item.Id"><img class="img-responsive" src="@item.ImgUrl" alt=""></a>
+                            <div class="news-post-detail">
+                                <span class="date">@item.CreatedOn.ToString("MMMM dd, yyyy")</span>
+                                <h2><a asp-controller="News" asp-action="ById" asp-route-id="@item.Id">@item.ShortTitle</a></h2>
+                                <p>@item.ShortContent</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<hr />
+<partial name="_PagingPartial" model="@Model" />

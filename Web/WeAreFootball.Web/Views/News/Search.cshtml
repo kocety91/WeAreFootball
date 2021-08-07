@@ -1,0 +1,63 @@
+﻿@model WeAreFootball.Web.ViewModels.Newses.SearchedNewsViewModel
+
+@{
+    var counter = 0;
+}
+
+
+<section id="contant" class="contant">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-lg-4 col-xs-12">
+                <h4>Latest predictions : </h4>
+                <aside id="sidebar" class="left-bar">
+                    <div class="feature-matchs">
+                        <div class="team-btw-match">
+                            @foreach (var item in Model.Evets)
+                            {
+                                <a asp-area="" asp-action="ById" asp-controller="Events" asp-route-id="@item.Id">
+                                    <ul>
+                                        @foreach (var team in item.EventTeams)
+                                        {
+                                            <li><img src="@team.LogoUrl" alt=""><span>@team.TeamName</span></li>
+                                            @if (counter == 0)
+                                            {
+                                                counter++;
+                                                <h4>VS</h4>
+                                            }
+                                            else
+                                            {
+                                                counter = 0;
+                                            }
+                                        }
+                                    </ul>
+                                    <hr />
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-lg-8 col-sm-8 col-xs-12">
+                @foreach (var item in Model.News)
+                {
+                    <div class="news-post-holder">
+                        <div class="news-post-widget">
+                            <a asp-controller="News" asp-action="ById" asp-route-id="@item.Id"><img class="img-responsive" src="@item.ImgUrl" alt=""></a>
+                            <div class="news-post-detail">
+                                <span class="date">@item.CreatedOn.ToString("MMMM dd, yyyy")</span>
+                                <h2><a asp-controller="News" asp-action="ById" asp-route-id="@item.Id">@item.ShortTitle</a></h2>
+                                <p>@item.ShortContent</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<hr />
+<partial name="_PagingPartial" model="@Model" />
