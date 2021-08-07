@@ -1,0 +1,59 @@
+﻿@model WeAreFootball.Web.ViewModels.Events.DerbyOfTheWeekViewModel
+
+@{
+    var counter = 0;
+}
+
+
+<a asp-area="" asp-controller="Events" asp-action="ById" asp-route-id="@Model.Id">
+    <div class="matchs-info">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="full">
+                    <div class="right-match-time">
+                        <h2>Derby of the week : </h2>
+                        <ul>
+                            @foreach (var team in Model.EventTeams)
+                            {
+                                @if (counter == 0)
+                                {
+                                    <li class="text-center">
+                                        <span>Home team :  </span>
+                                        <img src="@team.LogoUrl" alt="">
+                                        <span>  @team.TeamName</span>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="text-center">
+                                        <span>Away team :  </span>
+                                        <img src="@team.LogoUrl" alt="">
+                                        <span>  @team.TeamName</span>
+
+                                    </li>
+                                }
+                                <br />
+                                <br />
+                                @if (counter == 0)
+                                {
+                                    counter++;
+                                    <h4>VS</h4>
+                                }
+                                else
+                                {
+                                    counter = 0;
+                                }
+                            }
+                        </ul>
+                        <br />
+                        <img src="@Model.LeagueLogo" alt="">
+                        <span>@Model.LeagueName</span>
+                        <br />
+                        <span>@Model.Date.ToString("MMMM dd, yyyy")</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>
