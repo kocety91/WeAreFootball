@@ -1,7 +1,101 @@
-﻿@model WeAreFootball.Web.ViewModels.Administration.Dashboard.IndexViewModel
+﻿@model WeAreFootball.Web.ViewModels.Dashboard.InputModel
 @{
-    this.ViewData["Title"] = "Admin dashboard";
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>@this.ViewData["Title"]</h1>
-Settings: @this.Model.SettingsCount
+<div class="col-lg-12">
+    <div class="row">
+        <div class="col-md-6 mt-5 mb-3">
+            <div class="card">
+                <div class="seo-fact sbg1">
+                    <div class="p-4 d-flex justify-content-between align-items-center">
+                        <div class="seofct-icon">New users today</div>
+                        <h2>@Model.UsersToday</h2>
+                    </div>
+                    <canvas id="seolinechart1" height="80"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-md-5 mb-3">
+            <div class="card">
+                <div class="seo-fact sbg2">
+                    <div class="p-4 d-flex justify-content-between align-items-center">
+                        <div class="seofct-icon">News </div>
+                        <h2>@Model.NewsToday</h2>
+                    </div>
+                    <canvas id="seolinechart2" height="80"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12 mt-6">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="header-title">Most Active Users</h4>
+            <div class="single-table">
+                <div class="table-responsive">
+                    <table class="table text-center">
+                        <thead class="text-uppercase bg-primary">
+                            <tr class="text-white">
+                                <th scope="col">UserId</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Comments</th>
+                                <th scope="col">Registerd On</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in Model.MostActiveUsers)
+                            {
+                                <tr>
+                                    <th scope="row">@user.Id</th>
+                                    <td>@user.Email</td>
+                                    <td> <img class="img-responsive" src="@user.Image" height="50" width="50"></td>
+                                    <td>@user.CommentsCount</td>
+                                    <td>@user.RegisterdOn</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12 mt-6">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="header-title">Most comment news</h4>
+            <div class="single-table">
+                <div class="table-responsive">
+                    <table class="table text-center">
+                        <thead class="text-uppercase bg-primary">
+                            <tr class="text-white">
+                                <th scope="col">Title</th>
+                                <th scope="col">Created On</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Comments</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var currentNews in Model.MostCommentNews)
+                            {
+                                <tr>
+                                    <th scope="row"><a asp-area="" asp-controller="News" asp-action="ById" asp-route-id="@currentNews.Id">@currentNews.Title</a></th>
+                                    <td>@currentNews.CreatedOn</td>
+                                    <td> <img class="img-responsive" src="@currentNews.ImgUrl" height="50" width="50"></td>
+                                    <td>@currentNews.CommentsCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

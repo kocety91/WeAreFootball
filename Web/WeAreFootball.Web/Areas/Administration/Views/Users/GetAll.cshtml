@@ -1,0 +1,37 @@
+﻿@model WeAreFootball.Web.ViewModels.Users.AllUsersVIewModel
+
+<div class="col-12 mt-5">
+    <div class="card spur-card">
+        <div class="card-header">
+            <div class="spur-card-icon">
+            </div>
+            <div class="spur-card-title"><h3>All users</h3></div>
+        </div>
+        <div class="card-body ">
+            <table class="table table-striped table-in-card">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Email</th>
+                        <th>Image</th>
+                        <th>Registered On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var currentUser in Model.Users)
+                    {
+                        <tr>
+                            <td>@currentUser.Id</td>
+                            <td>@currentUser.Email</td>
+                            <td><img class="img-responsive" src=@currentUser.Image width="100" height="100"></td>
+
+                            <td>@currentUser.RegisterdOn.ToString("MMMM dd, yyyy")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <br />
+            <partial name="_DashboardPagingPartial" model="@Model" />
+        </div>
+    </div>
+</div>
