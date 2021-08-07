@@ -1,0 +1,23 @@
+﻿@model WeAreFootball.Web.ViewModels.Leagues.AllLeaguesViewModel
+
+
+<section id="contant" class="contant main-heading team">
+    <div class="row">
+        <div class="container">
+            @foreach (var league in Model.Leagues)
+            {
+                <div class="col-md-4 column">
+                    <div class="card">
+                        <img class="img-responsive" src=@league.ImgUrl style="width:100%">
+                        <div class="">
+                            <br />
+                            <p>
+                                <h5 class="button"><a asp-controller="Leagues" asp-action="ById" asp-route-id="@league.Id">@league.Name</a></h5>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

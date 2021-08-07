@@ -1,0 +1,18 @@
+﻿@model WeAreFootball.Web.ViewModels.Leagues.LeagueViewModel
+
+
+
+<div class="container-fluid contenedor text-center">
+    <h1 class="text-center"><img src="@Model.LogoUrl" alt=""> @Model.Name</h1>
+    <div class=" container text-center">
+        @foreach (var team in Model.Teams)
+        {
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+                <article class="text-center">
+                    <a asp-area="" asp-controller="Teams" asp-action="ById" asp-route-id="@team.Id"> <h2>@team.Name</h2></a>
+                </article>
+                <a asp-area="" asp-controller="Teams" asp-action="ById" asp-route-id="@team.Id"><img src="@team.ImgUrl" alt=""></a>
+            </div>
+        }
+    </div>
+</div>
