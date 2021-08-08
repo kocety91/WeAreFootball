@@ -25,17 +25,31 @@
         public IActionResult ById(int id)
         {
             var team = this.teamsService.GetById<TeamViewModel>(id);
-            team.Events = this.eventsService.GetByTeamId<EventViewModel>(team.Id);
-            team.News = this.newsService.GetNewsByTeamName<NewsViewModel>(team.Name);
-            return this.View(team);
+            if (team == null)
+            {
+                return this.NotFound();
+            }
+            else
+            {
+                team.Events = this.eventsService.GetByTeamId<EventViewModel>(team.Id);
+                team.News = this.newsService.GetNewsByTeamName<NewsViewModel>(team.Name);
+                return this.View(team);
+            }
         }
 
         public IActionResult ByTagName(string tagName)
         {
             var team = this.teamsService.GetByTagName<TeamViewModel>(tagName);
-            team.Events = this.eventsService.GetByTeamId<EventViewModel>(team.Id);
-            team.News = this.newsService.GetNewsByTeamName<NewsViewModel>(team.Name);
-            return this.View(team);
+            if (team == null)
+            {
+                return this.NotFound();
+            }
+            else
+            {
+                team.Events = this.eventsService.GetByTeamId<EventViewModel>(team.Id);
+                team.News = this.newsService.GetNewsByTeamName<NewsViewModel>(team.Name);
+                return this.View(team);
+            }
         }
     }
 }
