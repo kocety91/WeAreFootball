@@ -120,7 +120,7 @@
         {
             var todayDate = DateTime.Now.Day;
             return this.eventsRepository.All()
-                .Where(x => x.CreatedOn.Day == todayDate)
+                .Where(x => x.Date.Day == todayDate)
                 .To<T>().ToList();
         }
 
