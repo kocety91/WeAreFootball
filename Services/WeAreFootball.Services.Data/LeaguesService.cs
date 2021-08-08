@@ -143,7 +143,8 @@
         {
             return this.leaguesRepository.All()
                 .Where(x => x.Id == leagueId)
-                .ToString();
+                .Select(x => x.Name)
+                .FirstOrDefault();
         }
     }
 }

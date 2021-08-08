@@ -141,11 +141,11 @@
             return this.newsRepository.All().Count();
         }
 
-        public int GetSearchedCount(string teamName)
+        public int GetSearchedCount(string name)
         {
             return this.newsRepository.All()
-                .Where(x => x.Title.Contains(teamName)
-                || x.Content.Contains(teamName))
+                .Where(x => x.Title.Contains(name)
+                || x.Content.Contains(name))
                 .Count();
         }
 

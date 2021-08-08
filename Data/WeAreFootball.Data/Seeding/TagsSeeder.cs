@@ -55,6 +55,14 @@
             await dbContext.Tags.AddAsync(new Tag { Name = "Borussia Monchengladbah" });
             await dbContext.Tags.AddAsync(new Tag { Name = "Koln FC" });
             await dbContext.Tags.AddAsync(new Tag { Name = "Eintraht Francfurt" });
+            await dbContext.Tags.AddAsync(new Tag { Name = "La Liga" });
+            await dbContext.Tags.AddAsync(new Tag { Name = "Serie A" });
+            await dbContext.Tags.AddAsync(new Tag { Name = "Bundesliga" });
+            await dbContext.Tags.AddAsync(new Tag { Name = "Ligue 1" });
+            await dbContext.Tags.AddAsync(new Tag { Name = "English Premier League" });
+            await dbContext.Tags.AddAsync(new Tag { Name = "Champions League" });
+            await dbContext.Tags.AddAsync(new Tag { Name = "Europa League" });
+
 
             await dbContext.SaveChangesAsync();
         }

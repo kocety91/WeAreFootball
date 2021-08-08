@@ -12,7 +12,7 @@
 
         T GetById<T>(int id);
 
-        int GetSearchedCount(string teamName);
+        int GetSearchedCount(string name);
 
         int GetTodayNewsCount(DateTime today);
 
