@@ -37,6 +37,12 @@
         public IActionResult ById(int id)
         {
             var currentEvent = this.eventsService.GetById<EventViewModel>(id);
+
+            if (currentEvent == null)
+            {
+                return this.NotFound();
+            }
+
             return this.View(currentEvent);
         }
 
@@ -44,6 +50,11 @@
         {
             var itemsPerPage = 6;
             var pageId = 1;
+
+            if (leagueId <= 3 || leagueId > 11)
+            {
+                return this.NotFound();
+            }
 
             var viewModel = new AllEventsViewModel()
             {
