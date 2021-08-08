@@ -36,17 +36,18 @@
         public IActionResult ById(int id)
         {
             var currentNews = this.newsService.GetById<NewsViewModel>(id);
-            currentNews.NewsTags = this.tagsService.GetTagsForNews<NewsTagViewModel>(currentNews.Id);
-            currentNews.NewsLeagues = this.leagueService.GetleaguesForNews<NewsLeagueViewModel>(currentNews.Id);
-            var leagueId = currentNews.NewsLeagues.Select(x => x.LeagueId).FirstOrDefault();
-            currentNews.SimilarNews = this.newsService.GetLastFiveSimilarNews<SimilarNewsViewModel>(leagueId, currentNews.Id);
-
             if (currentNews == null)
             {
                 return this.NotFound();
             }
-
-            return this.View(currentNews);
+            else
+            {
+                currentNews.NewsTags = this.tagsService.GetTagsForNews<NewsTagViewModel>(currentNews.Id);
+                currentNews.NewsLeagues = this.leagueService.GetleaguesForNews<NewsLeagueViewModel>(currentNews.Id);
+                var leagueId = currentNews.NewsLeagues.Select(x => x.LeagueId).FirstOrDefault();
+                currentNews.SimilarNews = this.newsService.GetLastFiveSimilarNews<SimilarNewsViewModel>(leagueId, currentNews.Id);
+                return this.View(currentNews);
+            }
         }
 
         public IActionResult Search(string searchString, int id = 1)
