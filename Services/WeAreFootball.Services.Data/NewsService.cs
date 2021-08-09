@@ -205,12 +205,13 @@
             return null;
         }
 
-        public IEnumerable<T> GetNewsByCountry<T>(int leagueId)
+        public IEnumerable<T> GetNewsByCountry<T>(int leagueId, int page, int itemsPerPage = 6)
         {
             return this.newsLeaguesRepository.All()
                 .Where(x => x.LeagueId == leagueId)
                 .Select(n => n.News)
                 .OrderByDescending(x => x.CreatedOn)
+                .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
                 .To<T>().ToList();
         }
 

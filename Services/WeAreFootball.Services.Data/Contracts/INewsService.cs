@@ -24,7 +24,7 @@
 
         IEnumerable<T> GetLastFiveSimilarNews<T>(int leagueId, int newsId);
 
-        IEnumerable<T> GetNewsByCountry<T>(int leagueId);
+        IEnumerable<T> GetNewsByCountry<T>(int leagueId, int page, int itemsPerPage = 6);
 
         IEnumerable<T> GetNewsByTeamName<T>(string teamName);
 

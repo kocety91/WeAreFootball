@@ -87,7 +87,7 @@
                 PageNumber = id,
                 LeagueId = leagueId,
                 Count = this.newsService.GetNewsByCountryCount(leagueId),
-                News = this.newsService.GetNewsByCountry<NewsViewModel>(leagueId),
+                News = this.newsService.GetNewsByCountry<NewsViewModel>(leagueId, id, itemsPerPage),
                 Teams = this.teamsService.GetByLeagueId<TeamViewModel>(leagueId),
             };
             return this.View(viewModel);
