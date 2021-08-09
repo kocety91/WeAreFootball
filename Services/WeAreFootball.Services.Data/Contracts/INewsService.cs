@@ -10,6 +10,8 @@
     {
         int GetCount();
 
+        int GetNewsByCountryCount(int countryId);
+
         T GetById<T>(int id);
 
         int GetSearchedCount(string name);

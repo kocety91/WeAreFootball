@@ -1,5 +1,6 @@
 ﻿namespace WeAreFootball.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -79,13 +80,13 @@
             }
 
             var itemsPerPage = 6;
-            var countryName = this.leagueService.GetLeagueName(leagueId);
 
-            var viewModel = new AllNewsViewModel()
+            var viewModel = new AllNewsByCountryNameViewModel()
             {
                 ItemsPerPage = itemsPerPage,
                 PageNumber = id,
-                Count = this.newsService.GetSearchedCount(countryName),
+                LeagueId = leagueId,
+                Count = this.newsService.GetNewsByCountryCount(leagueId),
                 News = this.newsService.GetNewsByCountry<NewsViewModel>(leagueId),
                 Teams = this.teamsService.GetByLeagueId<TeamViewModel>(leagueId),
             };

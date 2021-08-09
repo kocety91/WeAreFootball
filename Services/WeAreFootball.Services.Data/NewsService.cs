@@ -168,11 +168,16 @@
 
         public int GetTodayNewsCount(DateTime today)
         {
-            var countNews = this.newsRepository.All()
+            return this.newsRepository.All()
                 .Where(x => x.CreatedOn.Day == today.Day)
-                .ToList();
+                .Count();
+        }
 
-            return countNews.Count();
+        public int GetNewsByCountryCount(int countryId)
+        {
+           return this.newsRepository.All()
+                .Where(x => x.Leagues.Any(l => l.League.Id == countryId))
+                .Count();
         }
 
         public IEnumerable<T> GetLastFiveSimilarNews<T>(int leagueId, int newsId)
