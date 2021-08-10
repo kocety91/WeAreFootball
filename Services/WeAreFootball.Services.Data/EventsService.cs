@@ -5,7 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using WeAreFootball.Common;
     using WeAreFootball.Data.Common.Repositories;
     using WeAreFootball.Data.Models;
     using WeAreFootball.Services.Data.Contracts;
@@ -82,7 +82,7 @@
             var currentEvent = this.eventsRepository.All().FirstOrDefault(x => x.Id == id);
             if (currentEvent == null)
             {
-                throw new ArgumentException(string.Format("Event doesnt exist."));
+                throw new NullReferenceException(string.Format(ExceptionMessages.EventDoesntExists));
             }
 
             this.eventsRepository.Delete(currentEvent);

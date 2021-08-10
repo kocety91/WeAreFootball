@@ -5,7 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using WeAreFootball.Common;
     using WeAreFootball.Data.Common.Repositories;
     using WeAreFootball.Data.Models;
     using WeAreFootball.Services.Data.Contracts;
@@ -38,6 +38,10 @@
                     StadiumName = input.StadiumName,
                     LeagueId = input.LeagueId,
                 };
+            }
+            else
+            {
+                throw new NullReferenceException(string.Format(ExceptionMessages.TeamAlreadyExists, input.Name));
             }
 
             Directory.CreateDirectory($"{imagePath}/teams/");
@@ -89,9 +93,10 @@
         public async Task DeleteAsync(int id)
         {
             var team = this.teamsRepository.All().FirstOrDefault(x => x.Id == id);
+
             if (team == null)
             {
-                throw new ArgumentException(string.Format("{0} cannot be deleted.", team.Name));
+                throw new NullReferenceException(string.Format(ExceptionMessages.TeamDoesntExists));
             }
 
             this.teamsRepository.Delete(team);

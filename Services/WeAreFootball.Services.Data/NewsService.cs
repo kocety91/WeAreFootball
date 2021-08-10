@@ -5,7 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using WeAreFootball.Common;
     using WeAreFootball.Data.Common.Repositories;
     using WeAreFootball.Data.Models;
     using WeAreFootball.Services.Data.Contracts;
@@ -39,12 +39,21 @@
 
         public async Task<int> CreateAsync(CreateNewsViewModel input, string userId, string imagePath)
         {
-            var currnetNews = new News()
+            var currnetNews = this.newsRepository.All().Where(x => x.Title == input.Title).FirstOrDefault();
+
+            if (currnetNews == null)
             {
-                Title = input.Title,
-                Content = input.Content,
-                AddedByUserId = userId,
-            };
+                currnetNews = new News()
+                {
+                    Title = input.Title,
+                    Content = input.Content,
+                    AddedByUserId = userId,
+                };
+            }
+            else
+            {
+                throw new NullReferenceException(string.Format(ExceptionMessages.NewsAlreadyExists, input.Title));
+            }
 
             foreach (var id in input.LeagueIds)
             {
@@ -102,7 +111,7 @@
             var news = this.newsRepository.All().FirstOrDefault(x => x.Id == id);
             if (news == null)
             {
-                throw new ArgumentException(string.Format("{0} cannot be deleted.", news.Title));
+                throw new NullReferenceException(string.Format(ExceptionMessages.NewsDoesntExists));
             }
 
             this.newsRepository.Delete(news);
