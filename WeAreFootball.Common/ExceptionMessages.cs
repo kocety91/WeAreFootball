@@ -12,5 +12,8 @@
 
         public const string EventDoesntExists = "Derby doesnt exists, cant be deleted";
 
+        public const string NewsAlreadyExists = "News with name {0} already exists.";
+
+        public const string NewsDoesntExists = "News doesnt exists, cant be deleted";
     }
 }
