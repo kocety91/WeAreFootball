@@ -39,6 +39,7 @@
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<Team, TeamViewModel>()
+                .ForMember(x => x.Id , y => y.MapFrom(x => x.Id))
                  .ForMember(x => x.LeagueId, y => y.MapFrom(x => x.LeagueId))
                  .ForMember(x => x.ImageId, y => y.MapFrom(x => x.ImageId))
                  .ForMember(x => x.LogoId, y => y.MapFrom(x => x.LogoId))

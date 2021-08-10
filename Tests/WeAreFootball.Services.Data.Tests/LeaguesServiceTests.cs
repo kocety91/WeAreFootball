@@ -1,12 +1,13 @@
 ﻿namespace WeAreFootball.Services.Data.Tests
 {
-    using Microsoft.EntityFrameworkCore;
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
     using System.Threading.Tasks;
+
+    using Microsoft.EntityFrameworkCore;
+    using Newtonsoft.Json;
     using WeAreFootball.Common;
     using WeAreFootball.Data;
     using WeAreFootball.Data.Models;
