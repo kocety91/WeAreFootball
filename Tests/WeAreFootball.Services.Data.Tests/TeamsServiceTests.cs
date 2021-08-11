@@ -1,21 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using WeAreFootball.Common;
-using WeAreFootball.Data;
-using WeAreFootball.Data.Models;
-using WeAreFootball.Data.Repositories;
-using WeAreFootball.Services.Mapping;
-using WeAreFootball.Web.ViewModels;
-using WeAreFootball.Web.ViewModels.Teams;
-using Xunit;
-
-namespace WeAreFootball.Services.Data.Tests
+﻿namespace WeAreFootball.Services.Data.Tests
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
+    using System.Threading.Tasks;
+
+    using Microsoft.EntityFrameworkCore;
+    using Newtonsoft.Json;
+    using WeAreFootball.Common;
+    using WeAreFootball.Data;
+    using WeAreFootball.Data.Models;
+    using WeAreFootball.Data.Repositories;
+    using WeAreFootball.Services.Mapping;
+    using WeAreFootball.Web.ViewModels;
+    using WeAreFootball.Web.ViewModels.Teams;
+    using Xunit;
+
     public class TeamsServiceTests
     {
         public TeamsServiceTests()
