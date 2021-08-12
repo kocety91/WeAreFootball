@@ -1,15 +1,15 @@
 ﻿namespace WeAreFootball.Services.Data.Tests
 {
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Http.Internal;
-    using Microsoft.EntityFrameworkCore;
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Reflection;
     using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Http.Internal;
+    using Microsoft.EntityFrameworkCore;
+    using Newtonsoft.Json;
     using WeAreFootball.Common;
     using WeAreFootball.Data;
     using WeAreFootball.Data.Models;
@@ -21,7 +21,7 @@
 
     public class NewsServiceTests
     {
-        private readonly string ImageExtension = "test.jpg";
+        private readonly string imageExtension = "test.jpg";
 
         public NewsServiceTests()
         {
@@ -432,7 +432,7 @@
 
             var service = new NewsService(repository, repository2, repository3, repository4, repository5, repository6);
 
-            var input = this.SeedInputModel(this.ImageExtension);
+            var input = this.SeedInputModel(this.imageExtension);
             await service.CreateAsync(input, "1", "path");
 
             var editViewModel = new EditNewsInputModel()
@@ -468,7 +468,7 @@
 
             var service = new NewsService(repository, repository2, repository3, repository4, repository5, repository6);
 
-            var input = this.SeedInputModel(this.ImageExtension);
+            var input = this.SeedInputModel(this.imageExtension);
             await service.CreateAsync(input, "1", "path");
 
             var expected = this.SeedDataBaseNews(1, "fake title", "1", "tagOne", dbContext);
@@ -483,7 +483,7 @@
         }
 
         [Fact]
-        public async Task CreateAsyncShouldThrowInvalidOperationExceptionWhenImageExtensionIsInvalid()
+        public async Task CreateAsyncShouldThrowNullReferenceException()
         {
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
               .UseInMemoryDatabase(Guid.NewGuid().ToString()).Options;
