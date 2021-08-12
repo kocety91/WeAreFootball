@@ -1,5 +1,7 @@
 ﻿namespace WeAreFootball.Web.ViewModels.Newses
 {
+    using System.Collections.Generic;
+
     using WeAreFootball.Data.Models;
     using WeAreFootball.Services.Mapping;
 
@@ -12,5 +14,7 @@
         public string AddedByUserId { get; set; }
 
         public string Content { get; set; }
+
+        public ICollection<NewsTagViewModel> Tags { get; set; }
     }
 }
